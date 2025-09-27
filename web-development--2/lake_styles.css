@@ -1,0 +1,236 @@
+﻿@charset "utf-8"; /* 定义样式表使用的字符编码为UTF-8 */
+
+/* 导入自定义Web字体 */
+@font-face {
+    font-family: 'CacChampagne';
+    src: url('cac_champagne.woff') format('woff'),
+         url('cac_champagne.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DobkinPlain';
+    src: url('DobkinPlain.woff') format('woff'),
+         url('DobkinPlain.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 基础结构样式 */
+body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1020px;
+    min-width: 640px;
+    background-color: #f5f2e9; /* 使用颜色值设置背景色 */
+    font-family: Arial, sans-serif;
+    color: #333; /* 文本默认颜色 */
+}
+
+/* 头部样式 */
+header {
+    background-color: #6b4b7c; /* 紫色背景 */
+    color: white; /* 使用颜色名设置文本色 */
+}
+
+header > img {
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+
+/* 导航样式 - 使用Flexbox布局 */
+header > nav {
+    display: flex;
+    background-color: #5a3a6e;
+}
+
+header > nav > ul {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+header > nav > ul > li {
+    flex: 1;
+    text-align: center;
+}
+
+header > nav a {
+    display: block;
+    padding: 1em 0; /* 设置内边距 */
+    color: white;
+    text-decoration: none;
+    font-family: 'CacChampagne', cursive; /* 应用自定义字体 */
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+/* 伪类应用 - 链接悬停效果 */
+header > nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* 半透明颜色效果 */
+}
+
+/* 主内容区域 - 使用Grid布局 */
+main {
+    display: grid;
+    grid-template-columns: 70% 24%;
+    gap: 2%;
+    margin: 1em;
+}
+
+/* 左列内容样式 */
+section#leftcol { /* ID选择器应用 */
+    background-color: #2a2a2a;
+    color: #f5f2e9;
+    padding: 1.5em; /* 内边距设置 */
+}
+
+section#leftcol h1 {
+    font-family: 'DobkinPlain', serif; /* 应用自定义字体 */
+    color: white;
+    font-size: 2.5em;
+    margin-top: 0;
+    border-bottom: 2px solid #e8b99e;
+    padding-bottom: 0.3em;
+}
+
+section#leftcol img {
+    width: 100%;
+    display: block;
+    margin: 1em 0; /* 外边距设置 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+section#leftcol p {
+    line-height: 1.6;
+    margin: 1em 0;
+}
+
+/* 左列侧边栏 - 使用Flex布局 */
+section#leftcol aside {
+    display: flex;
+    flex-direction: column;
+    background-color: #e8b99e;
+    color: #333;
+    padding: 1em;
+    margin: 1em 0.5em;
+    border-radius: 5px;
+}
+
+section#leftcol aside h1 {
+    font-size: 1.5em;
+    color: #5a3a6e;
+    margin-top: 0;
+    border-bottom: 1px solid #5a3a6e;
+}
+
+/* 列表样式修改 */
+section#leftcol aside ul {
+    list-style-type: square;
+    margin: 0.5em 0 0 1.5em;
+    padding: 0;
+}
+
+section#leftcol aside li {
+    margin: 0.3em 0;
+}
+
+/* 嵌套选择器应用 */
+section#leftcol aside ul li a {
+    color: #5a3a6e;
+    text-decoration: none;
+}
+
+section#leftcol aside ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 右列内容样式 */
+section#rightcol {
+    background-color: #6b4b7c;
+    color: white;
+    padding: 1.5em;
+}
+
+section#rightcol h2 {
+    font-family: 'CacChampagne', cursive;
+    color: #f5f2e9;
+    margin-top: 0;
+    font-size: 1.8em;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.2em;
+}
+
+section#rightcol nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0.8em 0;
+}
+
+section#rightcol nav ul li {
+    margin: 0.5em 0;
+}
+
+section#rightcol nav ul li a {
+    color: #f5f2e9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+section#rightcol nav ul li a:hover {
+    color: #e8b99e;
+}
+
+/* 引用样式 */
+section#rightcol blockquote {
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    padding: 1em;
+    font-style: italic;
+    margin: 1.5em 0;
+    border-left: 3px solid #e8b99e;
+    position: relative;
+}
+
+/* 伪元素应用 - 为引用添加引号 */
+section#rightcol blockquote::before {
+    content: '"';
+    font-size: 3em;
+    color: rgba(255,255,255,0.2);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-family: Georgia, serif;
+}
+
+/* 页脚样式 */
+footer {
+    clear: both;
+    background-color: #2a2a2a;
+    color: #f5f2e9;
+    text-align: center;
+    padding: 1.2em 0;
+    font-style: italic;
+    margin-top: 2em;
+}
+
+/* 生成内容示例 */
+footer::before {
+    content: "❦ ";
+    color: #e8b99e;
+}
+
+footer::after {
+    content: " ❦";
+    color: #e8b99e;
+}
+
+/* 已访问链接样式 */
+a:visited {
+    color: #a07aae;
+}
